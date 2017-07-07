@@ -11,9 +11,10 @@ public class PlayerCharacter : MonoBehaviour {
 	}
 
 	public void Hurt(int damage) {
-		_health -= damage;
+		_health += damage;
+		Debug.Log("hit");
 		if (_health < 0) {
-			Debug.Log ("Ai murit fraiere");
+			Debug.Log ("Freaking noob");
 		}
 	}
 }

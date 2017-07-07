@@ -22,7 +22,8 @@ GameObject:
   - component: {fileID: 33409651626459370}
   - component: {fileID: 65025169752434946}
   - component: {fileID: 23572013822578402}
-  - component: {fileID: 114962973081051572}
+  - component: {fileID: 114053736883831790}
+  - component: {fileID: 114711755741548762}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -37,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164575145134020}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.81, y: 1.01, z: 2.92}
+  m_LocalPosition: {x: -3.934513, y: 1.05, z: -2.22895}
   m_LocalScale: {x: 1, y: 2, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -94,7 +95,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114962973081051572
+--- !u!114 &114053736883831790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1164575145134020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57b6dee1061004babb1033a5bccf583f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  obstacleRange: 3
+  fireballPrefab: {fileID: 1615402951355058, guid: 8a8b9cfcc7026483596ec8bd60cade42,
+    type: 2}
+--- !u!114 &114711755741548762
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
