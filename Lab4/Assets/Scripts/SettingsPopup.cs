@@ -16,10 +16,16 @@ public class SettingsPopup : MonoBehaviour {
 	}
 
 	public void OnSpeedSliderValueChanged(float speed) {
-		Debug.Log("Speed is " + speed);
+		//Debug.Log("Speed is " + speed);
+		PlayerPrefs.SetFloat("speed", speed);
+		Messenger<float>.Broadcast(GameEvent.SPEED_CHANGED, speed);
 	}
 
 	public void OnNameChanged(string name) {
 		Debug.Log("name is " + name);
+	}
+
+	void Start() {
+		speedSlider.value = PlayerPrefs.GetFloat("speed", 1);
 	}
 }

@@ -7,16 +7,24 @@ public class WanderingAI : MonoBehaviour {
 	public float speed = 3.0f;
 	public float obstacleRange = 3.0f;
 	public GameObject fireballPrefab;
+	public bool alive {get; private set; }
 
-	private bool _alive;
 	private GameObject _fireball;
 
+	void Awake() {
+		Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, onSpeedChanged);
+	}
+
+	void OnDestroy() {
+		Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGED, onSpeedChanged);
+	}
+
 	void Start () {
-		_alive = true;
+		alive = true;
 	}
 	
 	void Update () {
-		if (_alive) {
+		if (alive) {
 			transform.Translate(0, 0, speed * Time.deltaTime);
 			Ray ray = new Ray(transform.position, transform.forward);
 			RaycastHit hit;
@@ -44,6 +52,10 @@ public class WanderingAI : MonoBehaviour {
 	}
 
 	public void Unalive() {
-		_alive = false;
+		alive = false;
+	}
+
+	private void onSpeedChanged(float speed) {
+		this.speed = speed;
 	}
 }

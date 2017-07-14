@@ -8,6 +8,14 @@ public class FPSInput : MonoBehaviour {
 
 	private CharacterController _charController;
 
+	void Awake() {
+		Messenger<float>.AddListener(GameEvent.SPEED_CHANGED, onSpeedChanged);
+	}
+
+	void OnDestroy() {
+		Messenger<float>.RemoveListener(GameEvent.SPEED_CHANGED, onSpeedChanged);
+	}
+
 	void Start () {
 		_charController = GetComponent<CharacterController>();
 	}
@@ -26,5 +34,9 @@ public class FPSInput : MonoBehaviour {
 		movement *= Time.deltaTime;		
 		movement = transform.TransformDirection(movement);
 		_charController.Move(movement);
+	}
+
+	private void onSpeedChanged(float speed) {
+		this.speed = speed;
 	}
 }

@@ -7,6 +7,9 @@ public class ReactiveTarget : MonoBehaviour {
 
 	public void ReactToHit() {
 		WanderingAI wand = GetComponent<WanderingAI>();
+		if (wand.alive) {
+			Messenger.Broadcast(GameEvent.ENEMY_HIT);
+		}
 		wand.Unalive();
 		StartCoroutine(Die());
 	}

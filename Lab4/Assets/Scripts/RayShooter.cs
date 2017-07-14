@@ -22,7 +22,7 @@ public class RayShooter : MonoBehaviour {
 	}
 	
 	void Update () {
-		if(Input.GetMouseButtonDown(0) && EventSystem.current.IsPoi	nterOverGameObject() == false) {
+		if(Input.GetMouseButtonDown(0) && EventSystem.current.IsPointerOverGameObject() == false) {
 			Vector3 point = new Vector3(_camera.pixelWidth / 2, _camera.pixelHeight / 2, 0);
 			Ray ray = _camera.ScreenPointToRay(point);
 			RaycastHit hit;
